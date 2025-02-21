@@ -22,6 +22,19 @@ config.plugins = (config.plugins || []).concat(
   })
 );
 
-webpack(config, function (err) {
-  if (err) throw err;
+webpack(config, function (err, stats) {
+  if (err) {
+    console.error('构建错误:', err);
+    process.exit(1);
+  }
+  
+  if (stats.hasErrors()) {
+    console.error('构建统计错误:', stats.toString({
+      chunks: false,
+      colors: true
+    }));
+    process.exit(1);
+  }
+  
+  console.log('构建完成!');
 });

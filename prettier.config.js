@@ -1,4 +1,4 @@
-export default {
+module.exports = {
   semi: false,
   singleQuote: true,
   tabWidth: 2,
@@ -7,5 +7,4 @@ export default {
   bracketSpacing: true,
   arrowParens: 'avoid',
   plugins: ['prettier-plugin-organize-imports'],
-  organizeImportsSkipDestructiveCodeActions: true,
 }
